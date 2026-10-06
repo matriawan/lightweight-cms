@@ -19,6 +19,7 @@ Content Management System (CMS) sederhana dan ringan, dibangun dengan **PHP nati
 - [ ] Kelola kategori
 - [ ] Upload gambar
 - [ ] Halaman publik untuk menampilkan konten
+- [ ] Pagination di artikel/post
 
 ## Kebutuhan Sistem
 
