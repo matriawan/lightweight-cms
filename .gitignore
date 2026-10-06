@@ -1,0 +1,133 @@
+# ==========================================================
+# .gitignore untuk Lightweight CMS
+# Teknologi: PHP Native + MySQL/MariaDB + Bootstrap
+#
+# Baris yang diawali tanda "#" adalah komentar dan tidak dibaca Git.
+# Pola di bawah memberi tahu Git file/folder mana yang TIDAK perlu dilacak.
+# ==========================================================
+
+
+# ----------------------------------------------------------
+# 1. Konfigurasi koneksi database (RAHASIA!)
+#    Berisi host, username, dan password MySQL/MariaDB.
+#    Jangan sampai ter-upload ke GitHub/GitLab.
+# ----------------------------------------------------------
+
+# File konfigurasi asli yang berisi password database
+config.php
+koneksi.php
+
+# Tetap simpan file contoh (tanpa password asli) sebagai panduan,
+# misal: config.example.php berisi $db_pass = "isi_password_anda";
+!config.example.php
+!koneksi.example.php
+
+
+# ----------------------------------------------------------
+# 2. File backup / dump database
+#    Hasil export dari phpMyAdmin atau mysqldump biasanya berisi
+#    data asli (user, password hash, dll.), jadi jangan di-commit.
+# ----------------------------------------------------------
+
+# Folder khusus tempat menyimpan backup database
+/backup/
+/backups/
+
+# File dump database yang dikompres
+*.sql.gz
+*.sql.zip
+
+# Catatan: file struktur tabel (misal: database/struktur.sql) BOLEH
+# di-commit agar orang lain bisa membuat database yang sama.
+
+
+# ----------------------------------------------------------
+# 3. File unggahan pengguna (upload)
+#    Gambar/dokumen yang di-upload lewat CMS bukan bagian dari kode.
+# ----------------------------------------------------------
+
+# Abaikan semua isi folder uploads...
+/uploads/*
+
+# ...kecuali file .gitkeep agar foldernya tetap ada di repository
+!/uploads/.gitkeep
+
+
+# ----------------------------------------------------------
+# 4. Log dan file sementara
+#    Dibuat otomatis saat aplikasi berjalan.
+# ----------------------------------------------------------
+
+# File log error PHP / aktivitas aplikasi
+*.log
+/logs/
+
+# Folder cache dan file sementara
+/cache/
+/tmp/
+
+
+# ----------------------------------------------------------
+# 5. File backup dari editor atau salinan manual
+# ----------------------------------------------------------
+
+# Contoh: index.php.bak, style.css.old
+*.bak
+*.old
+*.orig
+
+
+# ----------------------------------------------------------
+# 6. File pengaturan editor / IDE
+#    Preferensi pribadi masing-masing developer.
+# ----------------------------------------------------------
+
+# Visual Studio Code
+.vscode/
+
+# PhpStorm
+.idea/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# File swap Vim/Neovim
+*.swp
+*.swo
+*~
+
+
+# ----------------------------------------------------------
+# 7. File sistem operasi
+#    Dibuat otomatis oleh OS, tidak berguna untuk proyek.
+# ----------------------------------------------------------
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Linux
+.directory
+
+
+# ----------------------------------------------------------
+# 8. File arsip
+#    Misal hasil zip proyek untuk dikirim/di-upload ke hosting.
+# ----------------------------------------------------------
+
+*.zip
+*.rar
+*.tar.gz
+
+
+# ----------------------------------------------------------
+# CATATAN tentang Bootstrap:
+# File Bootstrap (bootstrap.min.css / bootstrap.bundle.min.js) yang
+# disimpan di folder proyek, misal assets/css dan assets/js, sengaja
+# TIDAK diabaikan, karena website membutuhkannya untuk tampil dengan
+# benar. Jika Bootstrap dipanggil lewat CDN, tidak ada yang perlu diatur.
+# ----------------------------------------------------------
