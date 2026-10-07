@@ -66,6 +66,9 @@ koneksi.php
 /cache/
 /tmp/
 
+# Folder pribadi: catatan, daftar issue, eksperimen, dan file sementara
+/scratch/
+
 
 # ----------------------------------------------------------
 # 5. File backup dari editor atau salinan manual
