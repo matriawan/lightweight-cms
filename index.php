@@ -3,6 +3,11 @@ session_start();
 
 // Load configuration
 require_once __DIR__ . '/config/database.php';
+require_once __DIR__ . '/models/setting.php';
+require_once __DIR__ . '/utils/pagination.php';
+
+$siteTitle = getSetting('title', 'Lightweight CMS');
+$siteDescription = getSetting('description');
 
 // Only pages in this list can be loaded
 $allowedPages = ['home'];
