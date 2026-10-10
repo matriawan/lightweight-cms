@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS t_user (
     display_name VARCHAR(100) NOT NULL,
     bio TEXT NULL,
     role ENUM('admin', 'editor') NOT NULL DEFAULT 'editor',
+    must_change_password TINYINT(1) NOT NULL DEFAULT 0,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -83,3 +84,7 @@ INSERT IGNORE INTO t_setting (setting_key, setting_value) VALUES
 ('title', 'Lightweight CMS'),
 ('description', 'Website sederhana berbasis PHP'),
 ('per_page', '5');
+
+-- Default admin (password: admin). Must change the password at first login.
+INSERT IGNORE INTO t_user (username, email, password_hash, display_name, role, must_change_password) VALUES
+('admin', 'admin@example.com', '$2y$12$a4K.x0MbB0lbdS8oDB6GGOBp.bpMK0N8IFKSjAjXqAEOz/Nt8hkR6', 'Administrator', 'admin', 1);
