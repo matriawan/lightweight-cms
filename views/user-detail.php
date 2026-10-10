@@ -30,7 +30,7 @@ include __DIR__ . '/header.php';
                     <?= $user['must_change_password'] ? 'Not changed yet (still default)' : 'Already changed' ?>
                 </td>
             </tr>
-            <tr><th>Bio</th><td class="wrap"><?= $user['bio'] === null || $user['bio'] === '' ? '-' : nl2br(htmlspecialchars($user['bio'])) ?></td></tr>
+            <tr><th>Bio</th><td class="wrap bio"><?= $user['bio'] === null || $user['bio'] === '' ? '-' : sanitizeHtml($user['bio']) ?></td></tr>
             <tr><th>Created</th><td><?= htmlspecialchars($user['created_at']) ?></td></tr>
             <tr><th>Updated</th><td><?= htmlspecialchars($user['updated_at']) ?></td></tr>
         </table>

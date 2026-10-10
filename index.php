@@ -5,6 +5,7 @@ require_once __DIR__ . '/models/setting.php';
 require_once __DIR__ . '/models/user.php';
 require_once __DIR__ . '/utils/auth.php';
 require_once __DIR__ . '/utils/pagination.php';
+require_once __DIR__ . '/utils/html.php';
 
 startSecureSession();
 
