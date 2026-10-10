@@ -2,7 +2,7 @@
 requireLogin();
 $me = currentUser();
 $isAdmin = $me['role'] === 'admin';
-// Editors see and manage only their own files
+// Authors see and manage only their own files
 $onlyUserId = $isAdmin ? null : (int) $me['id'];
 
 $page_number = isset($_GET['p']) ? (int) $_GET['p'] : 1;
