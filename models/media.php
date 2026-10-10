@@ -70,9 +70,12 @@ function findAccessibleMedia($id, $user) {
 }
 
 function createMedia($userId, $fileName, $filePath, $mimeType, $fileSize) {
-    $stmt = getDatabase()->prepare('INSERT INTO t_media (user_id, file_name, file_path, mime_type, file_size) VALUES (?, ?, ?, ?, ?)');
+    // One connection for the insert and for lastInsertId(), which is per connection
+    // (getDatabase() opens a new connection on every call)
+    $pdo = getDatabase();
+    $stmt = $pdo->prepare('INSERT INTO t_media (user_id, file_name, file_path, mime_type, file_size) VALUES (?, ?, ?, ?, ?)');
     $stmt->execute([$userId, $fileName, $filePath, $mimeType, $fileSize]);
-    return (int) getDatabase()->lastInsertId();
+    return (int) $pdo->lastInsertId();
 }
 
 // $onlyUserId is set for authors, so the SQL itself cannot touch another user's row
