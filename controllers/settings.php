@@ -48,8 +48,8 @@ if (isPostRequest()) {
             $uploads[$field] = $file;
         }
     }
-    if ($uploads && !uploadFolderIsWritable()) {
-        $errors[] = 'The uploads folder is not writable.';
+    if ($uploads && !sitesFolderIsWritable()) {
+        $errors[] = 'The sites folder is not writable.';
     }
 
     if (!$errors) {
