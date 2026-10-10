@@ -4,6 +4,9 @@ require_once __DIR__ . '/config/database.php';
 require_once __DIR__ . '/models/setting.php';
 require_once __DIR__ . '/models/user.php';
 require_once __DIR__ . '/models/media.php';
+require_once __DIR__ . '/models/single.php';
+require_once __DIR__ . '/models/category.php';
+require_once __DIR__ . '/models/post.php';
 require_once __DIR__ . '/utils/auth.php';
 require_once __DIR__ . '/utils/pagination.php';
 require_once __DIR__ . '/utils/html.php';
@@ -17,7 +20,7 @@ $siteDescription = getSetting('description');
 $faviconUrl = settingImageUrl('favicon');
 
 // Only pages in this list can be loaded
-$allowedPages = ['home', 'login', 'logout', 'change-password', 'users', 'user-form', 'user-detail', 'settings', 'media', 'media-upload', 'media-detail', 'media-edit'];
+$allowedPages = ['home', 'login', 'logout', 'change-password', 'users', 'user-form', 'user-detail', 'settings', 'media', 'media-upload', 'media-detail', 'media-edit', 'dashboard', 'posts', 'categories', 'singles'];
 
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 if (!in_array($page, $allowedPages, true)) {

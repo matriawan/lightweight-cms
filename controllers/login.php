@@ -1,4 +1,7 @@
 <?php
+// The login page uses the public navigation only
+$layout = 'public';
+
 if (currentUser()) {
     redirect('home');
 }

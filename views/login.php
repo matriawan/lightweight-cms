@@ -12,4 +12,5 @@
             <label class="checkbox"><input type="checkbox" name="remember" value="1"> Remember me</label>
             <button type="submit">Login</button>
         </form>
+        <p><a href="index.php">Back to Home</a></p>
 <?php include __DIR__ . '/footer.php'; ?>
