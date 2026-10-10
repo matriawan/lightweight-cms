@@ -52,6 +52,10 @@ koneksi.php
 # ...kecuali file .gitkeep agar foldernya tetap ada di repository
 !/uploads/.gitkeep
 
+# Gambar Site Settings (banner dan favicon) yang di-upload admin
+/public/uploads/*
+!/public/uploads/.gitkeep
+
 
 # ----------------------------------------------------------
 # 4. Log dan file sementara

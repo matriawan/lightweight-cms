@@ -80,10 +80,15 @@ CREATE TABLE IF NOT EXISTS t_setting (
     setting_value TEXT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- Sample content for the public pages. Change it on the Settings page.
+-- The sample banner and favicon are files, not rows: copy database/sample/header.png
+-- and database/sample/favicon.png to public/uploads/ to see them.
 INSERT IGNORE INTO t_setting (setting_key, setting_value) VALUES
 ('title', 'Lightweight CMS'),
 ('description', 'Website sederhana berbasis PHP'),
-('per_page', '5');
+('per_page', '5'),
+('header_text', '<p><strong>Selamat datang di Lightweight CMS</strong><br>Sistem manajemen konten yang sederhana, cepat, dan mudah dirawat.</p>'),
+('footer_text', '<p>&copy; 2026 Lightweight CMS. Dibuat dengan PHP dan MariaDB.</p>');
 
 -- Default admin (password: admin). Must change the password at first login.
 INSERT IGNORE INTO t_user (username, email, password_hash, display_name, role, must_change_password) VALUES

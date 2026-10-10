@@ -6,14 +6,16 @@ require_once __DIR__ . '/models/user.php';
 require_once __DIR__ . '/utils/auth.php';
 require_once __DIR__ . '/utils/pagination.php';
 require_once __DIR__ . '/utils/html.php';
+require_once __DIR__ . '/utils/image.php';
 
 startSecureSession();
 
 $siteTitle = getSetting('title', 'Lightweight CMS');
 $siteDescription = getSetting('description');
+$faviconUrl = settingImageUrl('favicon');
 
 // Only pages in this list can be loaded
-$allowedPages = ['home', 'login', 'logout', 'change-password', 'users', 'user-form', 'user-detail'];
+$allowedPages = ['home', 'login', 'logout', 'change-password', 'users', 'user-form', 'user-detail', 'settings'];
 
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 if (!in_array($page, $allowedPages, true)) {
