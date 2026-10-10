@@ -61,3 +61,223 @@ p {
     background: none;
     color: #666;
 }
+
+/* Navigation, forms, messages, tables */
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.nav a {
+    color: #333;
+}
+
+.inline-form {
+    display: inline;
+    margin: 0;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 400px;
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"],
+.form textarea,
+.form select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font: inherit;
+}
+
+.form .checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+button {
+    padding: 8px 12px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background: #333;
+    color: white;
+    font: inherit;
+    cursor: pointer;
+}
+
+.nav .logout-button {
+    background: #c62828;
+    border-color: #c62828;
+    color: white;
+}
+
+.nav .logout-button:hover {
+    background: #a31f1f;
+    border-color: #a31f1f;
+}
+
+.message {
+    padding: 10px 12px;
+    border-radius: 4px;
+    background: #eef;
+}
+
+.message.success {
+    background: #e6f4e6;
+    color: #1d5e1d;
+}
+
+.message.error {
+    background: #fbeaea;
+    color: #8a1f1f;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    min-width: 700px;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+.actions {
+    white-space: nowrap;
+}
+
+/* Text-style action links (buttons that look like links) */
+.link-button {
+    padding: 0;
+    border: none;
+    background: none;
+    font: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.actions a,
+.link-add {
+    margin-right: 10px;
+}
+
+.link-add,
+.link-edit {
+    color: #1a6fd1;
+}
+
+.link-reset {
+    color: #d9822b;
+    margin-right: 10px;
+}
+
+.link-delete {
+    color: #c62828;
+}
+
+.link-add:hover,
+.link-edit:hover,
+.link-reset:hover,
+.link-delete:hover {
+    opacity: 0.7;
+}
+
+/* Role text color shows the password status */
+.role-default {
+    color: #c62828;
+}
+
+.role-changed {
+    color: #2e7d32;
+}
+
+.legend {
+    margin: 12px 0;
+    font-size: 0.9em;
+}
+
+/* Search form */
+.search-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.search-form input[type="text"] {
+    flex: 1;
+    min-width: 180px;
+    max-width: 320px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font: inherit;
+}
+
+/* Radio group (Role) */
+.radio-group {
+    margin: 0;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.radio-group legend {
+    padding: 0 4px;
+}
+
+/* Disabled inputs (for example the username when editing a user) */
+.form input:disabled {
+    background: #eee;
+    color: #888;
+    cursor: not-allowed;
+}
+
+/* User detail page */
+.link-detail {
+    color: #555;
+}
+
+.link-detail:hover {
+    opacity: 0.7;
+}
+
+.detail {
+    min-width: 0;
+}
+
+.detail th {
+    width: 30%;
+    color: #666;
+}
+
+.detail td.wrap {
+    white-space: normal;
+}
+
+/* Disabled-looking text (for example "Protected" for the admin row) */
+.text-disabled {
+    color: #999;
+    cursor: not-allowed;
+}

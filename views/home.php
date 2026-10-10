@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($siteTitle) ?></title>
-    <meta name="description" content="<?= htmlspecialchars($siteDescription) ?>">
-    <link rel="stylesheet" href="public/css/style.css">
-</head>
-<body>
-    <div class="container">
+<?php
+$pageTitle = 'Home';
+include __DIR__ . '/header.php';
+?>
         <h1><?= htmlspecialchars($siteTitle) ?></h1>
         <p><?= htmlspecialchars($siteDescription) ?></p>
         <p>The application is running successfully!</p>
-    </div>
-</body>
-</html>
+<?php include __DIR__ . '/footer.php'; ?>
