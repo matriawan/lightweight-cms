@@ -1,6 +1,6 @@
 <?php
-const UPLOAD_DIR = __DIR__ . '/../public/uploads';
-const UPLOAD_URL = 'public/uploads';
+const SITES_DIR = __DIR__ . '/../public/sites';
+const SITES_URL = 'public/sites';
 const MAX_IMAGE_BYTES = 1024 * 1024;
 
 // The fixed image files of the Site Settings page. A new upload replaces the old file.
@@ -22,9 +22,9 @@ function settingImageUrl($key) {
     $newestTime = 0;
     foreach ($images[$key]['types'] as $type) {
         $fileName = $images[$key]['name'] . '.' . $type;
-        $path = UPLOAD_DIR . '/' . $fileName;
+        $path = SITES_DIR . '/' . $fileName;
         if (is_file($path) && filemtime($path) >= $newestTime) {
-            $newest = UPLOAD_URL . '/' . $fileName . '?v=' . filemtime($path);
+            $newest = SITES_URL . '/' . $fileName . '?v=' . filemtime($path);
             $newestTime = filemtime($path);
         }
     }
@@ -90,24 +90,24 @@ function checkImageUpload($file, $label, $allowedTypes) {
     return '';
 }
 
-function uploadFolderIsWritable() {
-    return is_dir(UPLOAD_DIR) && is_writable(UPLOAD_DIR);
+function sitesFolderIsWritable() {
+    return is_dir(SITES_DIR) && is_writable(SITES_DIR);
 }
 
 // Moves the upload next to its final place. Returns the temporary path, or '' on failure.
 function stageUpload($file, $fileName) {
-    $temp = UPLOAD_DIR . '/' . $fileName . '.tmp';
+    $temp = SITES_DIR . '/' . $fileName . '.tmp';
     return move_uploaded_file($file['tmp_name'], $temp) ? $temp : '';
 }
 
 // Replaces the old image with the staged one (same folder, so the replace is one step).
 // An older file of another allowed type (for example favicon.png after a new favicon.ico) is removed.
 function publishStagedImage($tempPath, $image, $type) {
-    if (!rename($tempPath, UPLOAD_DIR . '/' . $image['name'] . '.' . $type)) {
+    if (!rename($tempPath, SITES_DIR . '/' . $image['name'] . '.' . $type)) {
         return false;
     }
     foreach ($image['types'] as $otherType) {
-        $other = UPLOAD_DIR . '/' . $image['name'] . '.' . $otherType;
+        $other = SITES_DIR . '/' . $image['name'] . '.' . $otherType;
         if ($otherType !== $type && is_file($other)) {
             unlink($other);
         }

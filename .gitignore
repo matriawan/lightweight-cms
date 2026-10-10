@@ -53,8 +53,8 @@ koneksi.php
 !/uploads/.gitkeep
 
 # Gambar Site Settings (banner dan favicon) yang di-upload admin
-/public/uploads/*
-!/public/uploads/.gitkeep
+/public/sites/*
+!/public/sites/.gitkeep
 
 
 # ----------------------------------------------------------

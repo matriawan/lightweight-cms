@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS t_setting (
 
 -- Sample content for the public pages. Change it on the Settings page.
 -- The sample banner and favicon are files, not rows: copy database/sample/header.png
--- and database/sample/favicon.png to public/uploads/ to see them.
+-- and database/sample/favicon.png to public/sites/ to see them.
 INSERT IGNORE INTO t_setting (setting_key, setting_value) VALUES
 ('title', 'Lightweight CMS'),
 ('description', 'Website sederhana berbasis PHP'),
