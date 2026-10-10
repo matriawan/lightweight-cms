@@ -1,7 +1,13 @@
 <?php
 // Shared page top. Set $pageTitle before including.
+// $layout is 'public' (home and login) or 'panel' (default: every page of the admin and author panel).
 $navUser = currentUser();
 $flash = getFlash();
+$layout = $layout ?? 'panel';
+if ($layout === 'panel' && !$navUser) {
+    $layout = 'public';
+}
+$publicSingles = $layout === 'public' ? getPublishedSingles() : [];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,26 +23,8 @@ $flash = getFlash();
 </head>
 <body>
     <div class="container">
+        <?php include __DIR__ . ($layout === 'public' ? '/public-nav.php' : '/panel-nav.php'); ?>
         <?php if (!empty($isPublicPage)) { include __DIR__ . '/public-header.php'; } ?>
-        <nav class="nav">
-            <a href="index.php">Home</a>
-            <?php if ($navUser): ?>
-                <?php if ($navUser['role'] === 'admin' && !$navUser['must_change_password']): ?>
-                    <a href="index.php?page=users">Users</a>
-                    <a href="index.php?page=settings">Settings</a>
-                <?php endif; ?>
-                <?php if (!$navUser['must_change_password']): ?>
-                    <a href="index.php?page=media">Media</a>
-                <?php endif; ?>
-                <a href="index.php?page=change-password">Change Password</a>
-                <form method="post" action="index.php?page=logout" class="inline-form">
-                    <?= csrfField() ?>
-                    <button type="submit" class="logout-button">Logout (<?= htmlspecialchars($navUser['username']) ?>)</button>
-                </form>
-            <?php else: ?>
-                <a href="index.php?page=login">Login</a>
-            <?php endif; ?>
-        </nav>
         <?php if ($flash): ?>
             <p class="message <?= $flash['type'] === 'error' ? 'error' : 'success' ?>"><?= htmlspecialchars($flash['message']) ?></p>
         <?php endif; ?>
