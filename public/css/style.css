@@ -312,3 +312,60 @@ td {
 .form small {
     color: #666;
 }
+
+/* Public header, banner, and footer (shown on public pages only) */
+.site-header {
+    margin-bottom: 16px;
+}
+
+.site-banner {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.site-header-text,
+.site-footer {
+    color: #666;
+    line-height: 1.6;
+}
+
+.site-banner + .site-header-text {
+    margin-top: 12px;
+}
+
+.site-header-text > :first-child,
+.site-footer > :first-child {
+    margin-top: 0;
+}
+
+.site-header-text > :last-child,
+.site-footer > :last-child {
+    margin-bottom: 0;
+}
+
+.site-footer {
+    margin-top: 24px;
+    padding-top: 12px;
+    border-top: 1px solid #eee;
+    font-size: 0.9em;
+}
+
+/* Current images on the settings page */
+.current-image {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.current-favicon {
+    width: 32px;
+    height: 32px;
+}
+
+/* Extra space between the fields of every form */
+.form label:not(:first-of-type) {
+    margin-top: 12px;
+}
