@@ -55,10 +55,10 @@ function emailExists($email, $excludeId = 0) {
     return $stmt->fetchColumn() > 0;
 }
 
-// There is only one admin (the seeded account), so new users are always editors.
+// There is only one admin (the seeded account), so new users are always authors.
 // New users get the default password and must change it at first login.
 function createUser($username, $email, $displayName, $bio) {
-    $stmt = getDatabase()->prepare("INSERT INTO t_user (username, email, password_hash, display_name, bio, role, must_change_password) VALUES (?, ?, ?, ?, ?, 'editor', 1)");
+    $stmt = getDatabase()->prepare("INSERT INTO t_user (username, email, password_hash, display_name, bio, role, must_change_password) VALUES (?, ?, ?, ?, ?, 'author', 1)");
     $stmt->execute([$username, $email, password_hash(DEFAULT_PASSWORD, PASSWORD_DEFAULT), $displayName, $bio]);
 }
 

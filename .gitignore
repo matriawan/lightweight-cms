@@ -56,7 +56,7 @@ koneksi.php
 /public/sites/*
 !/public/sites/.gitkeep
 
-# File fitur Media yang di-upload admin dan editor
+# File fitur Media yang di-upload admin dan author
 /public/media/*
 !/public/media/.gitkeep
 

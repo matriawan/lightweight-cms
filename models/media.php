@@ -1,6 +1,6 @@
 <?php
 // Builds the WHERE part for the media list.
-// $onlyUserId limits the list to one user (editors see only their own files).
+// $onlyUserId limits the list to one user (authors see only their own files).
 // $filters: 'uploader' (user id), 'type' (image, video, document), 'q' (name keyword)
 function mediaListCondition($onlyUserId, $filters) {
     $where = [];
@@ -55,7 +55,7 @@ function getMediaUploaders() {
 }
 
 // Returns the media row only when the user may manage it: an admin for any row,
-// an editor only for their own. Every page and action uses this, so ownership is checked on the server.
+// an author only for their own. Every page and action uses this, so ownership is checked on the server.
 function findAccessibleMedia($id, $user) {
     $stmt = getDatabase()->prepare('SELECT m.*, u.username, u.display_name FROM t_media m JOIN t_user u ON u.id = m.user_id WHERE m.id = ?');
     $stmt->execute([(int) $id]);
@@ -75,7 +75,7 @@ function createMedia($userId, $fileName, $filePath, $mimeType, $fileSize) {
     return (int) getDatabase()->lastInsertId();
 }
 
-// $onlyUserId is set for editors, so the SQL itself cannot touch another user's row
+// $onlyUserId is set for authors, so the SQL itself cannot touch another user's row
 function updateMedia($id, $fileName, $altText, $onlyUserId = null) {
     $sql = 'UPDATE t_media SET file_name = ?, alt_text = ? WHERE id = ?';
     $params = [$fileName, $altText, $id];
