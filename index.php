@@ -26,4 +26,13 @@ if ($loggedInUser && $loggedInUser['must_change_password'] && !in_array($page, [
     redirect('change-password');
 }
 
-include __DIR__ . '/views/' . $page . '.php';
+// The controller handles the request (access, POST, redirects) and prepares data.
+// The view only shows it. A page may have only one of them (home has no controller).
+$controllerFile = __DIR__ . '/controllers/' . $page . '.php';
+$viewFile = __DIR__ . '/views/' . $page . '.php';
+if (is_file($controllerFile)) {
+    require $controllerFile;
+}
+if (is_file($viewFile)) {
+    include $viewFile;
+}
