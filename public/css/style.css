@@ -369,3 +369,49 @@ td {
 .form label:not(:first-of-type) {
     margin-top: 12px;
 }
+
+/* Media */
+.search-form select {
+    padding: 8px 36px 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font: inherit;
+    /* Own arrow, so it keeps some space from the right edge in every browser */
+    appearance: none;
+    background: white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23666' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 14px center;
+}
+
+.media-name {
+    white-space: normal;
+    word-break: break-word;
+    min-width: 140px;
+}
+
+.media-preview {
+    margin-bottom: 16px;
+}
+
+.media-preview img,
+.media-preview video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.url-label {
+    display: block;
+    margin-top: 16px;
+}
+
+.url-field {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 6px 0 12px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #f5f5f5;
+    font: inherit;
+}

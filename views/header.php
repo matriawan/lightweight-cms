@@ -25,6 +25,9 @@ $flash = getFlash();
                     <a href="index.php?page=users">Users</a>
                     <a href="index.php?page=settings">Settings</a>
                 <?php endif; ?>
+                <?php if (!$navUser['must_change_password']): ?>
+                    <a href="index.php?page=media">Media</a>
+                <?php endif; ?>
                 <a href="index.php?page=change-password">Change Password</a>
                 <form method="post" action="index.php?page=logout" class="inline-form">
                     <?= csrfField() ?>

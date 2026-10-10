@@ -56,6 +56,10 @@ koneksi.php
 /public/sites/*
 !/public/sites/.gitkeep
 
+# File fitur Media yang di-upload admin dan editor
+/public/media/*
+!/public/media/.gitkeep
+
 
 # ----------------------------------------------------------
 # 4. Log dan file sementara
